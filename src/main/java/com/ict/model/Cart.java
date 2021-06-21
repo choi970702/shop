@@ -31,17 +31,14 @@ public class Cart {
 	// 카트에 제품을 담는 메소드
 	// 카트에 담을 제품이 현재 카트에 존재하면 수량만 증가
 	// 카트에 담을 제품이 현재 카트에 존재하지 않으면 카트에 추가
-	public static void addProduct(String idx) 
-	{
+	public static void addProduct(String idx) {
 		VO vo = findProduct(idx);
-		if(vo == null) 
-		{
+		if(vo == null) {
 			// 현재 카트에 제품이 없다는 뜻(카드에 제품을 담는다.)
 			vo = DAO.getOneList(idx);
 			vo.setQuant(1);    // 카드에 존재하는 제품의 수량
 			cartList.add(vo);
-		}else 
-		{
+		}else {
 			// 카트에 존재하는 제품의 수량을 꺼내서 1증가 시킨다.
 			vo.setQuant(vo.getQuant()+1);
 		}
@@ -50,8 +47,7 @@ public class Cart {
 	}
 	
 	// 카트보기에서 카트에 수량을 변경하는 메소드
-    public static void setQuant(String idx, int su) 
-    {
+    public static void setQuant(String idx, int su) {
     	VO vo = findProduct(idx);
     	total = total - vo.getTotalPrice();
     	
@@ -60,8 +56,7 @@ public class Cart {
     }
 	
 	// 카트보기에서 카트에서 제품을 삭제하는 메소드
-	public static void setDelete(String idx) 
-	{
+	public static void setDelete(String idx) {
 		VO vo = findProduct(idx);
 		cartList.remove(vo);
 		total = total - vo.getTotalPrice();

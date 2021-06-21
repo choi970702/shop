@@ -7,11 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ict.db.VO;
 
-public class ShowCartCommand implements Command
-{
+public class ShowCartCommand implements Command{
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) 
-	{
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<VO> cartList = Cart.cartList;
 		
 		request.setAttribute("cartList", cartList);

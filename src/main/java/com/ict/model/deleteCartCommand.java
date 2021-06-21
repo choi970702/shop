@@ -3,15 +3,12 @@ package com.ict.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class EditCartCommand implements Command
-{
+public class deleteCartCommand implements Command{
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) 
-	{
-		int su = Integer.parseInt(request.getParameter("su"));
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String idx = request.getParameter("idx");
+		Cart.setDelete(idx);
 		
-		Cart.setQuant(idx, su);
 		return "MyController?cmd=showCart";
 	}
 }

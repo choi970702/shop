@@ -13,24 +13,25 @@ table {
 	margin: 10px auto;
 	width: 800px;
 	border-collapse: collapse;
-	font-size: 12pt;
 	border-color: navy;
+	font-size: 10pt;
 }
 
 table, th, td {
 	border: 1px solid black;
 	padding: 2px;
 }
-input{width: 50px;}
+
+input{
+	width: 50px; 
+}
 </style>
 <script type="text/javascript">
-	function edit_cart(f) 
-	{
+	function edit_cart(f) {
 		f.action="/MyController?cmd=editCart";
 		f.submit();
 	}
-	function delete_cart(f) 
-	{
+	function delete_cart(f) {
 		f.action="/MyController?cmd=deleteCart";
 		f.submit();
 	}
@@ -64,17 +65,17 @@ input{width: 50px;}
 					<tr>
 						<td>${k.p_num }</td>
 						<td>${k.p_name }</td>
-						<td>시중가 : <fmt:formatNumber value="${k.p_price}" pattern="#,###"/>원&nbsp;&nbsp;
-							<font style="color: tomato">(세일가 : <fmt:formatNumber value="${k.p_saleprice}" pattern="#,###"/>원)</font>
+						<td>시중가 : <fmt:formatNumber value="${k.p_price }" pattern="#,###" /> 원 <br>
+							<font style="color: tomato">(세일가 : <fmt:formatNumber value="${k.p_saleprice}" pattern="#,###" /> 원)</font>
 						</td>
 						<td>
 							<form method="post">
-								<input type="number" name="su" value="${k.quant}">
+								<input type="number" name="su" value="${k.quant}" >
 								<input type="hidden" name="idx" value="${k.idx}">
 								<input type="button" value="수정" onclick="edit_cart(this.form)">
 							</form>
 						</td>
-						<td><fmt:formatNumber value="${k.totalPrice}" pattern="#,###"/>원</td>
+						<td><fmt:formatNumber value="${k.totalPrice }" pattern="#,###" /> 원</td>
 						<td>
 							<form method="post">
 								<input type="hidden" name="idx" value="${k.idx}">
@@ -89,7 +90,7 @@ input{width: 50px;}
 		<tfoot>
 			<tr style="text-align: right;">
 				<td colspan="6" style="padding-right: 50px;">
-					<h2> 총 결재액 : <fmt:formatNumber value="${total}" pattern="#,###"/>원</h2>
+					<h2> 총 결재액 : <fmt:formatNumber value="${total}" pattern="#,###" /> 원</h2>
 				</td>
 			</tr>
 		</tfoot>
